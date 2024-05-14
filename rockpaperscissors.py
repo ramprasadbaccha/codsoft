@@ -3,7 +3,7 @@ import random
 def play_game(user_choice):
     choices = ["rock","paper","scissors"]
     computer_choice = random.choice(choices) 
-    l2.config(text="Computer choose: " + computer_choice)
+    label2.config(text="Computer choose: " + computer_choice)
     if user_choice == computer_choice:
         result = "It's a tie!"
   
@@ -24,27 +24,27 @@ def play_game(user_choice):
             result = "YaY You Win!"
         else:
            result = "Computer wins!"
-    l3.config(text=result)
+    label3.config(text=result)
     play_again_button.pack()
 
 def play_again():
-    l2.config(text="")
-    l3.config(text="")
+    label2.config(text="")
+    label3.config(text="")
     play_again_button.pack_forget()
 
-parent = Tk()
-parent.title("Rock Paper Scissors Game")
-label = Label(parent, text="Choose:")
+root = Tk()
+root.title("Rock Paper Scissors Game")
+label = Label(root, text="Choose:")
 label.pack()
-b1 = Button(parent, text="rock", command=lambda: play_game("rock"))
-b1.pack(side="left")
-b2 = Button(parent, text="paper", command=lambda: play_game("paper"))
-b2.pack(side="right")
-b3 = Button(parent, text="scissors", command=lambda: play_game("scissors"))
-b3.pack(side="top")
-l2 = Label(parent, text="")
-l2.pack()
-l3 = Label(parent, text="")
-l3.pack()
-play_again_button = Button(parent, text="Play Again", command=play_again)
-parent.mainloop()
+button1 = Button(root, text="rock", command=lambda: play_game("rock"))
+button1.pack(side="left")
+button2 = Button(root, text="paper", command=lambda: play_game("paper"))
+button2.pack(side="right")
+button3 = Button(root, text="scissors", command=lambda: play_game("scissors"))
+button3.pack(side="top")
+label2 = Label(root, text="")
+label2.pack()
+label3 = Label(root, text="")
+label3.pack()
+play_again_button = Button(root, text="Play Again", command=play_again)
+root.mainloop()
